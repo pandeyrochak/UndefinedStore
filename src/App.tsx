@@ -14,7 +14,7 @@ function App() {
         <Header />
         {/* Routes */}
         <Routes>
-          <Route path="/" Component={Products} />
+          <Route path="/:categoryName?" Component={Products} />
           <Route path="/categories" Component={Categories} />
           <Route path="/product-details" Component={ProductDetails} />
           <Route path="/cart" Component={Cart} />

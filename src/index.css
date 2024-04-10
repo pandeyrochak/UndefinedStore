@@ -1,8 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Poppins, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
@@ -15,6 +16,7 @@
 }
 #root {
   width: 100%;
+  margin: 0 auto;
 }
 a {
   font-weight: 500;
@@ -43,13 +45,13 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
+/* button:hover {
   border-color: #646cff;
-}
-button:focus,
+} */
+/* button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -62,4 +64,10 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+.unstyled-button {
+  @apply border-none bg-none p-0 text-inherit cursor-pointer active:border-none active:outline-none focus:outline-none;
+}
+.container-center {
+  @apply container mx-auto;
 }
