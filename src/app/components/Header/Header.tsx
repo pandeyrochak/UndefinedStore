@@ -22,12 +22,12 @@ const Header = () => {
             <input type="text" placeholder="Search" className="px-4 py-2 rounded-lg pr-8 bg-transparent border" />
             <Search size={16} className="absolute right-3" />
           </div>
-          <div className="relative flex items-center">
+          <Link to={'/cart'} className="relative flex items-center">
             <ShoppingCart size={24} />
             <span className="w-4 h-4 bg-slate-50 rounded-full text-xs text-black flex justify-center items-center absolute -top-1 -right-1">
               0
             </span>
-          </div>
+          </Link>
         </div>
       </div>
     </header>

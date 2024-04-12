@@ -6,12 +6,12 @@ interface AddToCartProps {
 }
 const AddToCart = ({ handleRemoveFromCart, handleAddToCart, count }: AddToCartProps) => {
   return count === 0 ? (
-    <button onClick={handleAddToCart} className="text-white px-2 py-1 rounded-md w-28 bg-blue-500">
+    <button onClick={handleAddToCart} className="text-white px-4 py-2  w-32 bg-indigo-500 hover:bg-indigo-600">
       Add to cart
     </button>
   ) : (
     <>
-      <div className="cart-controls rounded-md  text-white px-2 py-1 w-28 flex items-center justify-between bg-blue-500">
+      <div className="cart-controls  text-white px-4 py-2 w-32 flex items-center justify-between bg-indigo-500 hover:bg-indigo-600">
         <button onClick={handleRemoveFromCart} className="unstyled-button bg-transparent">
           -
         </button>
