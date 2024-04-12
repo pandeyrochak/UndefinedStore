@@ -19,7 +19,7 @@ const ProductCard = ({ image, title }: ProductCardProps) => {
   }
 
   return (
-    <div className="product-card border border-slate-400 rounded-md w-56">
+    <div className="product-card border border-slate-100 rounded-md w-56">
       <div className="image-wrapper relative group">
         <div className="absolute top-0 left-0 w-full h-full bg-slate-600 bg-opacity-65 rounded-t-md flex opacity-0 items-center justify-center group-hover:opacity-100 transition-all">
           <Link to={'/product-details'} className="text-slate-800 font-semibold bg-white px-4 py-2 rounded-md">

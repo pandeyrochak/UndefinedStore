@@ -19,7 +19,7 @@ const Header = () => {
           </Link>
           {/* Search Input */}
           <div className="flex justify-center items-center relative">
-            <input type="text" placeholder="Search" className="px-4 py-2 rounded-lg pr-8" />
+            <input type="text" placeholder="Search" className="px-4 py-2 rounded-lg pr-8 bg-transparent border" />
             <Search size={16} className="absolute right-3" />
           </div>
           <div className="relative flex items-center">
