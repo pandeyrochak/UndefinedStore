@@ -1,25 +1,54 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import AddToCart from '../../components/Products/AddToCart'
 import Rating from '../../components/Products/Rating'
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getProductDetails } from '../../../api/getProductDetails'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import { addToCart, removeFromCart } from '../../store/cartSlice'
+import { RootState } from '../../store/cartStore'
 
 const ProductDetails = () => {
+  const cartData = useAppSelector((state: RootState) => state.myCart)
+  const dispatch = useAppDispatch()
   // get product id parameter from url
   const { productId } = useParams()
   // states and handler for add to cart button
   const [count, setCount] = useState(0)
   const handleAddToCart = () => {
-    setCount(count + 1)
+    setCount(prev => prev + 1)
+    dispatch(
+      addToCart({
+        id: data.id,
+        name: data.title,
+        price: data.price,
+        image: data.image,
+        category: data.category,
+        quantity: 0,
+      }),
+    )
   }
   const handleRemoveFromCart = () => {
-    setCount(count - 1)
+    setCount(prev => prev - 1)
+    dispatch(removeFromCart(data.id))
   }
+  // const getCountFromStore = (targetId: number) => {
+  //   console.log(cartData)
+  // }
   const { status, error, data } = useQuery({
     queryKey: ['productDetails', productId],
     queryFn: () => getProductDetails(productId ?? ''),
   })
+
+  useEffect(() => {
+    if (status === 'success' && cartData) {
+      console.log(cartData)
+      const tempCount = cartData.find(item => item.id === data.id)
+      // console.log(`tempcount`, tempCount.quantity)
+      setCount(tempCount?.quantity ?? 0)
+    }
+  }, [data, status, cartData])
+
   // in case of pending state
   if (status === 'pending')
     return (
@@ -34,6 +63,7 @@ const ProductDetails = () => {
         <h1>{error.toString()}</h1>
       </div>
     )
+
   // else case when data is resolved.
   return (
     <div className="container-center">

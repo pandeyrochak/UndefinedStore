@@ -24,7 +24,7 @@ const Products = () => {
         <h1>{error.toString()}</h1>
       </div>
     )
-  console.log(data)
+  // console.log(data)
   return (
     <div className="container-center">
       <h1 className="text-3xl font-semibold mb-5">
