@@ -1,8 +1,19 @@
 // import React from 'react'
 import { CirclePercent, Search, ShoppingCart } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useAppSelector } from '../../store/hooks'
+import { RootState } from '../../store/cartStore'
+import { useEffect, useState } from 'react'
 
 const Header = () => {
+  const cartData = useAppSelector((state: RootState) => state.myCart)
+  const [totalCartCount, setTotalCartCount] = useState(0)
+  useEffect(() => {
+    if (cartData) {
+      const totalCartCount = cartData.reduce((acc, item) => acc + item.quantity, 0)
+      setTotalCartCount(totalCartCount ?? 0)
+    }
+  }, [cartData])
   return (
     <header className="w-full mb-7 md:mb-14">
       <div className="container-center flex justify-between items-center px-5 py-4 lg:px-0">
@@ -25,7 +36,7 @@ const Header = () => {
           <Link to={'/cart'} className="relative flex items-center">
             <ShoppingCart size={24} />
             <span className="w-4 h-4 bg-slate-50 rounded-full text-xs text-black flex justify-center items-center absolute -top-1 -right-1">
-              0
+              {totalCartCount}
             </span>
           </Link>
         </div>
