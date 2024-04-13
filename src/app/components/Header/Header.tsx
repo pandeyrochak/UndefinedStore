@@ -15,7 +15,7 @@ const Header = () => {
     }
   }, [cartData])
   return (
-    <header className="w-full mb-7 md:mb-14">
+    <header className="w-full mb-7 md:mb-14 sticky top-0 bg-zinc-100 z-10">
       <div className="container-center flex justify-between items-center px-5 py-4 lg:px-0">
         {/* Logo */}
         <Link to={'/'} className="flex items-center gap-2 unstyled-button">
@@ -30,7 +30,7 @@ const Header = () => {
           </Link>
           {/* Search Input */}
           <div className="flex justify-center items-center relative">
-            <input type="text" placeholder="Search" className="px-4 py-2 rounded-lg pr-8 bg-transparent border" />
+            <input type="text" placeholder="Search" className="px-4 py-2 rounded-lg pr-8 bg-white border" />
             <Search size={16} className="absolute right-3" />
           </div>
           <Link to={'/cart'} className="relative flex items-center">

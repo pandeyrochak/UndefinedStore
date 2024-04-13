@@ -83,7 +83,7 @@ const ProductDetails = () => {
             </div>
             <div className="product-info-group">
               <p className="text-sm text-gray-500">Price</p>
-              <p className="text-xl font-bold">Rs. {data.price * 85}</p>
+              <p className="text-xl font-bold">Rs. {data.price}</p>
             </div>
             <div className="product-info-group">
               <p className="text-sm text-gray-500">Description</p>
