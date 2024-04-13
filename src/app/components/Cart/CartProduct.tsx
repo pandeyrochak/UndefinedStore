@@ -1,7 +1,7 @@
 import { DeleteIcon } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { addToCart, removeFromCart } from '../../store/cartSlice'
 import { useAppDispatch } from '../../store/hooks'
-import { CartItem, addToCart, removeFromCart } from '../../store/cartSlice'
 import AddToCart from '../Products/AddToCart'
 interface CartProductProps {
   product: {

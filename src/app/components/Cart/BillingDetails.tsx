@@ -19,10 +19,7 @@ const BillingDetails = () => {
           <span>Total</span>
           <span>₹{totalAmount ?? 0}</span>
         </div>
-        <button
-          className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full disabled:opacity-50 disabled:bg-gray-400"
-          disabled={totalAmount === '0.00'}
-        >
+        <button className="primary-btn font-semibold py-3 text-sm text-white uppercase w-full" disabled={totalAmount === '0.00'}>
           Checkout
         </button>
       </div>
