@@ -15,9 +15,9 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
-        {/* Routes */}
         <Provider store={cartStore}>
+          <Header />
+          {/* Routes */}
           <QueryClientProvider client={queryClient}>
             <Routes>
               <Route path="/:categoryName?" Component={Products} />
