@@ -1,23 +1,41 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import AddToCart from '../AddToCart'
 import { ProductType } from '../../../../utils/responseTypes'
+import { useAppDispatch, useAppSelector } from '../../../store/hooks'
+import { RootState } from '../../../store/cartStore'
+import { addToCart, removeFromCart } from '../../../store/cartSlice'
 interface ProductCardProps {
   product: ProductType
 }
 const ProductCard = ({ product }: ProductCardProps) => {
-  const { image, title, id } = product
+  const cartData = useAppSelector((state: RootState) => state.myCart)
+  const dispatch = useAppDispatch()
+  const { image, title, id, price, category } = product
   const [count, setCount] = useState(0)
 
   const handleAddToCart = () => {
-    setCount(count + 1)
+    setCount(prev => prev + 1)
+    dispatch(
+      addToCart({
+        id: id,
+        name: title,
+        price: price,
+        image: image,
+        category: category,
+        quantity: 0,
+      }),
+    )
   }
 
   const handleRemoveFromCart = () => {
-    if (count > 0) {
-      setCount(count - 1)
-    }
+    setCount(prev => prev - 1)
+    dispatch(removeFromCart(id))
   }
+  useEffect(() => {
+    const tempCount = cartData.find(item => item.id === id)
+    setCount(tempCount?.quantity ?? 0)
+  }, [])
 
   return (
     <div className="product-card border border-slate-200 rounded-md w-full h-full flex flex-col justify-between hover:shadow-md transition-shadow duration-100">
