@@ -1,7 +1,7 @@
 import { DeleteIcon } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { addToCart, removeFromCart } from '../../store/cartSlice'
 import { useAppDispatch } from '../../store/hooks'
+import { CartItem, addToCart, removeFromCart } from '../../store/cartSlice'
 import AddToCart from '../Products/AddToCart'
 interface CartProductProps {
   product: {
@@ -62,7 +62,7 @@ const CartProduct = ({ product }: CartProductProps) => {
       </div>
 
       <span className="text-center w-1/5 font-semibold text-sm">₹{product.price}</span>
-      <span className="text-center w-1/5 font-semibold text-sm">₹{totalPrice}</span>
+      <span className="text-center w-1/5 font-semibold text-sm">₹{totalPrice.toFixed(2)}</span>
     </div>
   )
 }
