@@ -1,31 +1,22 @@
+import { RootState } from '../../store/cartStore'
+import { useAppSelector } from '../../store/hooks'
+
 // BillingDetails.js
 const BillingDetails = () => {
+  const cartData = useAppSelector((state: RootState) => state.myCart)
+  const totalAmount = cartData.reduce((acc, item) => acc + item.price, 0).toFixed(2)
   return (
-    <div id="summary" className="w-1/4 px-8 py-10">
+    <div id="summary" className="w-full px-8 py-10 sticky top-[80px]">
       <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
-      <div className="flex justify-between mt-10 mb-5">
-        <span className="font-semibold text-sm uppercase">Items 3</span>
-        <span className="font-semibold text-sm">590$</span>
-      </div>
-      <div>
-        <label className="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
-        <select className="block p-2 text-gray-600 w-full text-sm">
-          <option>Standard shipping - $10.00</option>
-        </select>
-      </div>
-      <div className="py-10">
-        <label htmlFor="promo" className="font-semibold inline-block mb-3 text-sm uppercase">
-          Promo Code
-        </label>
-        <input type="text" id="promo" placeholder="Enter your code" className="p-2 text-sm w-full" />
-      </div>
-      <button className="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">Apply</button>
-      <div className="border-t mt-8">
+      <div className="mt-8">
         <div className="flex font-semibold justify-between py-6 text-sm uppercase">
-          <span>Total cost</span>
-          <span>$600</span>
+          <span>Total</span>
+          <span>₹{totalAmount ?? 0}</span>
         </div>
-        <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
+        <button
+          className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full disabled:opacity-50 disabled:bg-gray-400"
+          disabled={totalAmount === '0.00'}
+        >
           Checkout
         </button>
       </div>
