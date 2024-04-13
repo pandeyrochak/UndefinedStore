@@ -9,7 +9,7 @@ import ProductCard from '../../components/Products/ProductCard/ProductCard'
 const Products = () => {
   const { categoryName } = useParams()
   const { status, data, error } = useQuery({
-    queryKey: ['all-products'],
+    queryKey: ['all-products', categoryName],
     queryFn: () => getAllProducts(categoryName ?? ''),
   })
   if (status === 'pending')
@@ -33,8 +33,8 @@ const Products = () => {
       {/* rendering products */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
         {data.map((item: ProductType, index: number) => (
-          <div className="col-span-1">
-            <ProductCard product={item} key={index * 88} />
+          <div className="col-span-1" key={index * 88}>
+            <ProductCard product={item} />
           </div>
         ))}
       </div>
