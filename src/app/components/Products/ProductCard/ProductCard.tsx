@@ -35,7 +35,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   useEffect(() => {
     const tempCount = cartData.find(item => item.id === id)
     setCount(tempCount?.quantity ?? 0)
-  }, [])
+  }, [id, cartData])
 
   return (
     <div className="product-card border border-slate-200 rounded-md w-full h-full flex flex-col justify-between hover:shadow-md transition-shadow duration-100">
