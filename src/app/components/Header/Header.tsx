@@ -1,6 +1,6 @@
 // import React from 'react'
 import { CirclePercent, Search, ShoppingCart } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAppSelector } from '../../store/hooks'
 import { RootState } from '../../store/cartStore'
 import { useEffect, useState } from 'react'
@@ -8,6 +8,12 @@ import { useEffect, useState } from 'react'
 const Header = () => {
   const cartData = useAppSelector((state: RootState) => state.myCart)
   const [totalCartCount, setTotalCartCount] = useState(0)
+  const navigate = useNavigate()
+  // function to handle search input
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const query = e.target.value
+    query.length > 3 ? navigate(`/search-results?q=${query}`) : navigate('/')
+  }
   useEffect(() => {
     if (cartData) {
       const totalCartCount = cartData.reduce((acc, item) => acc + item.quantity, 0)
@@ -30,7 +36,12 @@ const Header = () => {
           </Link>
           {/* Search Input */}
           <div className="flex justify-center items-center relative">
-            <input type="text" placeholder="Search" className="px-4 py-2 rounded-lg pr-8 bg-white border" />
+            <input
+              type="text"
+              placeholder="Search"
+              className="px-4 py-2 rounded-lg pr-8 bg-white border"
+              onInput={handleSearch}
+            />
             <Search size={16} className="absolute right-3" />
           </div>
           <Link to={'/cart'} className="relative flex items-center">
