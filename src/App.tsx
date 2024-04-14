@@ -20,13 +20,15 @@ function App() {
           <Header />
           {/* Routes */}
           <QueryClientProvider client={queryClient}>
-            <Routes>
-              <Route path="/:categoryName?" Component={Products} />
-              <Route path="/categories" Component={Categories} />
-              <Route path="/product-details/:productId" Component={ProductDetails} />
-              <Route path="/cart" Component={Cart} />
-              <Route path="/search-results" Component={SearchResults} />
-            </Routes>
+            <div className="max-md:px-4">
+              <Routes>
+                <Route path="/:categoryName?" Component={Products} />
+                <Route path="/categories" Component={Categories} />
+                <Route path="/product-details/:productId" Component={ProductDetails} />
+                <Route path="/cart" Component={Cart} />
+                <Route path="/search-results" Component={SearchResults} />
+              </Routes>
+            </div>
           </QueryClientProvider>
         </Provider>
       </BrowserRouter>
