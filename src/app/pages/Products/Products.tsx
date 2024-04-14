@@ -31,7 +31,7 @@ const Products = () => {
         {categoryName ? `${categoryName.at(0)?.toLocaleUpperCase()}${categoryName.slice(1)}` : 'All Products'}
       </h1>
       {/* rendering products */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
         {data.map((item: ProductType, index: number) => (
           <div className="col-span-1" key={index * 88}>
             <ProductCard product={item} />
