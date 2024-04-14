@@ -4,7 +4,7 @@ import { CartItem } from '../../store/cartSlice'
 
 const CartProducts = ({ cartData }: { cartData: CartItem[] }) => {
   return (
-    <div className="w-3/4 bg-white px-10 py-10">
+    <div className="w-full sm:w-3/4 bg-white md:px-10  py-10">
       {cartData.length > 0 ? (
         <>
           <div className="flex justify-between border-b pb-8">

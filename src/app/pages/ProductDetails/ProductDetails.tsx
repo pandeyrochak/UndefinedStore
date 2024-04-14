@@ -66,13 +66,13 @@ const ProductDetails = () => {
 
   // else case when data is resolved.
   return (
-    <div className="container-center">
+    <div className="container-center max-md:pb-32">
       <div className="grid grid-cols-8 gap-5 mx-auto">
         <div className="col-span-1"></div>
-        <div className="col-span-2">
+        <div className="col-span-6 sm:col-span-2">
           <img src={data.image} className="rounded-xl" />
         </div>
-        <div className="col-span-4">
+        <div className="col-span-8 sm:col-span-4">
           <div className="flex flex-col gap-4">
             <div className="product-info-group mb-3">
               <h2 className="text-2xl">{data.title}</h2>

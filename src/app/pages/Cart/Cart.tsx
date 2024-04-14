@@ -14,7 +14,7 @@ const Cart = () => {
   }, [cartData])
   return (
     <div className="container mx-auto mt-10">
-      <div className="flex  my-10 relative">
+      <div className="flex max-md:flex-col-reverse my-10 relative">
         <CartProducts cartData={cartData} />
         <div className="flex flex-col flex-1">
           <BillingDetails totalAmount={totalAmount} />

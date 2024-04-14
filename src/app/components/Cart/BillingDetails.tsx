@@ -12,7 +12,7 @@ const BillingDetails = ({ totalAmount }: { totalAmount: string }) => {
   // }, [cartData])
 
   return (
-    <div id="summary" className="w-full px-8 py-10 sticky top-[80px]">
+    <div id="summary" className="w-full sm:px-8 sm:py-10 sticky top-[80px]">
       <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
       <div className="mt-8">
         <div className="flex font-semibold justify-between py-6 text-sm uppercase">

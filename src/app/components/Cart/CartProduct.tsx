@@ -42,13 +42,13 @@ const CartProduct = ({ product }: CartProductProps) => {
   }, [product.quantity])
 
   return (
-    <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-      <div className="flex w-2/5">
-        <div className="w-24 h-24">
+    <div className="flex items-center hover:bg-gray-100  md:px-6 py-5">
+      <div className="flex w-2/5 max-md:flex-col">
+        <div className="w-16 h-16">
           <img className="w-full h-full object-contain" src={product.image} alt="product" />
         </div>
-        <div className="flex flex-col justify-between ml-4 flex-grow">
-          <span className="font-bold text-sm">{product.name}</span>
+        <div className="flex flex-col justify-between md:ml-4 max-md:ml-2 max-md:mt-2 flex-grow max-md:gap-2">
+          <span className="font-bold text-sm text-justify max-md:pr-4">{product.name}</span>
           <button className="unstyled-btn hover:text-red-500 flex items-center gap-2">
             <DeleteIcon className="w-6 h-6" />
             Remove
