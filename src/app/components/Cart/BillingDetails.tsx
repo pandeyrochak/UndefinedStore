@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react'
-import { RootState } from '../../store/cartStore'
-import { useAppSelector } from '../../store/hooks'
+// import { useEffect, useState } from 'react'
+// import { RootState } from '../../store/cartStore'
+// import { useAppSelector } from '../../store/hooks'
 
 // BillingDetails.js
-const BillingDetails = () => {
-  const cartData = useAppSelector((state: RootState) => state.myCart)
-  const [totalAmount, setTotalAmount] = useState<string>('0')
-  useEffect(() => {
-    const tempTotal = cartData.reduce((acc, item) => acc + item.price, 0).toFixed(2)
-    setTotalAmount(tempTotal ?? '0')
-  }, [cartData])
+const BillingDetails = ({ totalAmount }: { totalAmount: string }) => {
+  // const cartData = useAppSelector((state: RootState) => state.myCart)
+  // const [totalAmount, setTotalAmount] = useState<string>('0')
+  // useEffect(() => {
+  //   const tempTotal = cartData.reduce((acc, item) => acc + item.price, 0).toFixed(2)
+  //   setTotalAmount(tempTotal ?? '0')
+  // }, [cartData])
 
   return (
     <div id="summary" className="w-full px-8 py-10 sticky top-[80px]">
@@ -19,7 +19,10 @@ const BillingDetails = () => {
           <span>Total</span>
           <span>₹{totalAmount ?? 0}</span>
         </div>
-        <button className="primary-btn font-semibold py-3 text-sm text-white uppercase w-full" disabled={totalAmount === '0.00'}>
+        <button
+          className="primary-btn font-semibold py-3 text-sm text-white uppercase w-full"
+          disabled={totalAmount === '0.00'}
+        >
           Checkout
         </button>
       </div>

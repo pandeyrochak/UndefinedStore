@@ -1,14 +1,8 @@
-// ProductList.js
-// import { ProductType } from '../../../utils/responseTypes'
-import { RootState } from '../../store/cartStore'
-import { useAppSelector } from '../../store/hooks'
-
 import CartProduct from './CartProduct'
 import emptyCart from '../../../assets/empty-cart.webp'
+import { CartItem } from '../../store/cartSlice'
 
-const CartProducts = () => {
-  const cartData = useAppSelector((state: RootState) => state.myCart)
-
+const CartProducts = ({ cartData }: { cartData: CartItem[] }) => {
   return (
     <div className="w-3/4 bg-white px-10 py-10">
       {cartData.length > 0 ? (
