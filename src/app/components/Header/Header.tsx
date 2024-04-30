@@ -21,7 +21,7 @@ const Header = () => {
     }
   }, [cartData])
   return (
-    <header className="w-full mb-7 md:mb-14 sticky top-0 bg-zinc-100 z-10">
+    <header className="w-full mb-7 md:mb-14 sticky top-0 border-b-2 border-slate-100 bg-white z-10">
       <div className="container-center flex justify-between items-center px-4 py-4 lg:px-0 max-md:flex-wrap">
         {/* Logo */}
         <Link to={'/'} className="flex items-center gap-2 unstyled-button max-md:flex-1">
@@ -33,6 +33,9 @@ const Header = () => {
         <div className="flex items-center gap-8 max-md:flex-1 max-md:justify-end ">
           <Link to={'/categories'} className="text-inherit">
             <span>Categories</span>
+          </Link>
+          <Link to={'/orders'} className="text-inherit">
+            <span>My orders</span>
           </Link>
           {/* Search Input */}
           <div className="justify-center items-center relative hidden md:flex">
@@ -49,7 +52,7 @@ const Header = () => {
             className="relative flex items-center max-md:fixed max-md:bottom-4 max-md:right-4 max-md:bg-spray-200 max-md:rounded-full max-md:p-4"
           >
             <ShoppingCart size={24} className="text-spray-600" />
-            <span className="w-4 h-4 bg-slate-50 rounded-full text-xs text-black flex justify-center items-center absolute -top-1 -right-1 max-md:bg-transparent max-md:text-spray-600 max-md:top-2 max-md:right-2">
+            <span className="w-4 h-4 bg-orange-500 rounded-full text-xs text-white flex justify-center items-center absolute -top-1 -right-1 max-md:bg-transparent max-md:text-spray-600 max-md:top-2 max-md:right-2">
               {totalCartCount}
             </span>
           </Link>

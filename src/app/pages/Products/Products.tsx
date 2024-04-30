@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import { getAllProducts } from '../../../api/getAllProducts'
 import { ProductType } from '../../../utils/responseTypes'
 import ProductCard from '../../components/Products/ProductCard/ProductCard'
+import LoadingUI from '../../components/Loader/LoadingUI'
 
 const Products = () => {
   const { categoryName } = useParams()
@@ -12,12 +13,7 @@ const Products = () => {
     queryKey: ['all-products', categoryName],
     queryFn: () => getAllProducts(categoryName ?? ''),
   })
-  if (status === 'pending')
-    return (
-      <div className="container-center">
-        <h1>Loading...</h1>
-      </div>
-    )
+  if (status === 'pending') return <LoadingUI />
   if (status === 'error')
     return (
       <div className="container-center">

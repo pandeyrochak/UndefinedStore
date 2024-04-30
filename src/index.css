@@ -31,7 +31,7 @@ select {
 }
 button.primary-btn,
 div.primary-btn {
-  @apply bg-spray-500 text-white hover:bg-spray-600 active:bg-spray-700 disabled:bg-spray-100 disabled:text-spray-400 border cursor-pointer rounded-md outline-none shadow-none max-md:text-sm;
+  @apply border border-spray-700 text-spray-700 hover:bg-spray-600 hover:text-white disabled:border-gray-400 disabled:bg-gray-400 disabled:text-white cursor-pointer rounded-md outline-none shadow-none max-md:text-sm;
 }
 a {
   font-weight: 500;

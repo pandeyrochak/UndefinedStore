@@ -3,18 +3,14 @@
 import { useQuery } from '@tanstack/react-query'
 import Category from '../../components/Products/Category'
 import { getAllCategories } from '../../../api/getAllCategories'
+import LoadingUI from '../../components/Loader/LoadingUI'
 
 const Categories = () => {
   const { status, error, data } = useQuery({
     queryKey: ['all-categories'],
     queryFn: getAllCategories,
   })
-  if (status === 'pending')
-    return (
-      <div className="container-center">
-        <p>Loading...</p>
-      </div>
-    )
+  if (status === 'pending') return <LoadingUI />
   if (status === 'error')
     return (
       <div className="container-center">

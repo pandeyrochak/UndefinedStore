@@ -1,6 +1,6 @@
-import { DeleteIcon } from 'lucide-react'
+import { Trash2 } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { addToCart, removeFromCart } from '../../store/cartSlice'
+import { addToCart, removeFromCart, removeItem } from '../../store/cartSlice'
 import { useAppDispatch } from '../../store/hooks'
 import AddToCart from '../Products/AddToCart'
 interface CartProductProps {
@@ -36,6 +36,9 @@ const CartProduct = ({ product }: CartProductProps) => {
     dispatch(removeFromCart(product.id))
     setTotalPrice(prev => prev - product.price)
   }
+  const removeProductFromCart = () => {
+    dispatch(removeItem(product.id))
+  }
 
   useEffect(() => {
     setCount(product.quantity)
@@ -44,14 +47,13 @@ const CartProduct = ({ product }: CartProductProps) => {
   return (
     <div className="flex items-center hover:bg-gray-100  md:px-6 py-5">
       <div className="flex w-2/5 max-md:flex-col">
-        <div className="w-16 h-16">
+        <div className="w-1/5 h-16">
           <img className="w-full h-full object-contain" src={product.image} alt="product" />
         </div>
-        <div className="flex flex-col justify-between md:ml-4 max-md:ml-2 max-md:mt-2 flex-grow max-md:gap-2">
+        <div className="w-4/5 flex flex-col justify-between md:ml-4 max-md:ml-2 max-md:mt-2 flex-grow max-md:gap-2">
           <span className="font-bold text-sm text-justify max-md:pr-4">{product.name}</span>
-          <button className="unstyled-btn hover:text-red-500 flex items-center gap-2">
-            <DeleteIcon className="w-6 h-6" />
-            Remove
+          <button className="unstyled-btn group flex items-center gap-2 w-fit" onClick={removeProductFromCart}>
+            <Trash2 className="w-4 h4 text-red-500 group-hover:scale-110 transition-all" strokeWidth={1} />
           </button>
         </div>
       </div>

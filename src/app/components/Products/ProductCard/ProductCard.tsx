@@ -40,17 +40,17 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <div className="product-card border border-slate-300 rounded-lg w-full h-full flex flex-col justify-between hover:shadow-md transition-shadow duration-100">
       {/* image  */}
-      <div className="image-wrapper relative group p-4 ">
-        <div className="absolute top-0 left-0 w-full h-full bg-spray-500  rounded-t-md flex opacity-0 items-center justify-center group-hover:opacity-100 transition-all">
-          <Link
-            to={`/product-details/${id}`}
-            className="text-white font-semibold bg-transparent px-4 py-2 rounded-md border border-white hover:text-spray-500 hover:bg-white"
-          >
+      <Link
+        to={`/product-details/${id}`}
+        className="text-white font-semibold bg-transparent px-4 py-2 rounded-md border border-white hover:text-spray-500 hover:bg-white"
+      >
+        <div className="image-wrapper relative group p-4 ">
+          {/* <div className="absolute top-0 left-0 w-full h-full bg-spray-500  rounded-t-md flex opacity-0 items-center justify-center group-hover:opacity-100 transition-all">
             View Details
-          </Link>
+        </div> */}
+          <img src={image} alt={title} className="w-full h-64 object-contain group-hover:scale-105 transition-all" />
         </div>
-        <img src={image} alt={title} className="w-full h-64 object-contain" />
-      </div>
+      </Link>
       {/* product info  */}
       <div className="px-4 pt-2 pb-4 w-full">
         <h3 className="font-semibold text-sm mt-2 mb-3 whitespace-nowrap text-ellipsis overflow-hidden">{title}</h3>

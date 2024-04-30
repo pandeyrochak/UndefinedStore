@@ -7,6 +7,7 @@ import { getProductDetails } from '../../../api/getProductDetails'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { addToCart, removeFromCart } from '../../store/cartSlice'
 import { RootState } from '../../store/cartStore'
+import LoadingUI from '../../components/Loader/LoadingUI'
 
 const ProductDetails = () => {
   const cartData = useAppSelector((state: RootState) => state.myCart)
@@ -50,12 +51,7 @@ const ProductDetails = () => {
   }, [data, status, cartData])
 
   // in case of pending state
-  if (status === 'pending')
-    return (
-      <div className="container-center">
-        <h1>Loading ...</h1>
-      </div>
-    )
+  if (status === 'pending') return <LoadingUI />
   // in case of an error
   if (status === 'error')
     return (
