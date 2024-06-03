@@ -1,19 +1,17 @@
-import { useState } from 'react'
-
 const Orders = () => {
-  const [orders, setOrders] = useState(JSON.parse(localStorage.getItem('userOrders') || '[]'))
-  console.log(orders)
+  // const [orders, setOrders] = useState(JSON.parse(localStorage.getItem('userOrders') || '[]'))
+  // console.log(orders)
 
   return (
     <div className="container-center">
       <h1>Your Orders</h1>
-      <div className="orders-container">
-        {orders.map(order => {
+      {/* <div className="orders-container">
+        {orders.map((order: any) => {
           return (
             <div className="order-card">
               <h2>Order ID: {order.orderId}</h2>
 
-              {order.orderDetails.map(orderItem => {
+              {order.orderDetails.map((orderItem: any) => {
                 return (
                   <div className="order-item flex items-center gap-3">
                     <h3>{orderItem.name}</h3>
@@ -25,7 +23,7 @@ const Orders = () => {
             </div>
           )
         })}
-      </div>
+      </div> */}
     </div>
   )
 }
